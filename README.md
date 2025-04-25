@@ -43,7 +43,12 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 <h2>Tutorial</h2>
 
 ### **PXE Server Imaging Procedure**
-**Overview:** starts.
+**Overview:PXE Boot Workflow** 
+- Client machine boots from network
+- DHCP process (Broadcast, Offer, Request, Acknowledge) assigns an IP address and provides PXE boot server details
+- Client connects to TFTP server and requests the boot file
+- TFTP server sends the boot file, which the client loads into memory
+- Once loaded, imaging or OS installation process starts
 
 **1. Prepare the Target Computers**  
 - Connect computers to the network via Ethernet  
@@ -71,16 +76,22 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 ---
 
 ### **USB Drive Imaging Procedure**
-**OVERVIEW: Create a Bootable USB Drive**  
+**OVERVIEW: USB Boot Workflow**
+- Insert USB drive into the computer
+- Access BIOS Boot Menu → Set USB as the first boot device
+- System loads installation media
+- Begin imaging or OS installation
+
+**1. Create a Bootable USB Drive**  
 - Potentially use **company software library** to create bootable media  
 - Select **"Create Task Sequence Media"** . **Bootable Media**  
 - Secure USB with a **password**  
 
-**1. Booting into USB Imaging Mode**  
+**2. Booting into USB Imaging Mode**  
 - Insert **USB drive** into the computer  
 - Access **BIOS Boot Menu** → Set **USB as the first boot device**  
 
-**2. Begin Installation Process**  
+**3. Begin Installation Process**  
 - Follow installation steps for **system setup**  
 - Apply **company-specific settings**  
 
@@ -91,13 +102,3 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 - This repository was inspired by **best practices demonstrated** in the video  
   ["How to Image Computers | PXE | USB Drive"](https://www.youtube.com/watch?v=N9oohOcQI64) by East Charmer.  
 - This documentation was structured based on **industry-standard imaging workflows**.  
-
----
-
-<h2>Contributors</h2>
-
-Maintained by **Victoria Deery**  
-
-<h2>License</h2>
-
-Open-source contribution guidelines apply—feel free to fork and improve!  
