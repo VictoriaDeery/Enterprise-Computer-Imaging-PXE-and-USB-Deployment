@@ -55,7 +55,7 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 - Ensure correct VLAN access to the PXE server  
 
 **2. Booting into PXE Mode**  
-- Power on the computer and enter BIOS Setup (*varies by manufacturer*)  
+- Power on the computer and enter BIOS Setup (*varies by manufacturer, search online*)  
 - Navigate to **Startup Tab > Network Boot**  
 - Ensure **LAN Boot** is enabled. 
 
@@ -84,12 +84,15 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 
 **1. Create a Bootable USB Drive**  
 - Potentially use **company software library** to create bootable media  
-- Select **"Create Task Sequence Media"** . **Bootable Media**  
-- Secure USB with a **password**  
+- Select **"Create Task Sequence Media" > Bootable Media > Next > Removable USB Drive**  
+- Secure USB with a **password**
+- If the company protocol is to have an expiration for the bootable media, select that now.
 
 **2. Booting into USB Imaging Mode**  
 - Insert **USB drive** into the computer  
-- Access **BIOS Boot Menu** → Set **USB as the first boot device**  
+- Access **BIOS Boot Menu** > Set **USB as the first boot device**
+  - This can be done by using the appropriate function buttons (see #2 above) or manually by opening the **BIOS Settings > Boot Order Options > Change First Boot Order to USB > Save Changes and Exit BIOS.**
+-   The computer will reboot and load the image.
 
 **3. Begin Installation Process**  
 - Follow installation steps for **system setup**  
