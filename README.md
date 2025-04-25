@@ -8,8 +8,7 @@
 
 This repository provides a detailed guide on imaging computers using **PXE servers** and **USB drives**. It covers **enterprise provisioning techniques**, **network-based mass imaging**, and **manual deployment workflows**. Optional sections explore **DHCP configurations**, **PowerShell scripting**, and **Active Directory (AD) integration** for IT professionals.
 
-For **related cloud-based imaging methods via Azure**, visit my repository:  
-[Azure Computing and Networking](https://github.com/victoriadeery/azure-computing-and-networking)
+
 
 ---
 
@@ -44,41 +43,44 @@ For **related cloud-based imaging methods via Azure**, visit my repository:
 <h2>Tutorial</h2>
 
 ### **PXE Server Imaging Procedure**
+**Overview:** starts.
+
 **1. Prepare the Target Computers**  
 - Connect computers to the network via Ethernet  
-- Ensure VLAN access to the PXE server  
+- Ensure correct VLAN access to the PXE server  
 
 **2. Booting into PXE Mode**  
 - Power on the computer and enter BIOS Setup (*varies by manufacturer*)  
-- Navigate to **Startup Tab → Network Boot**  
-- Ensure **LAN Boot** is enabled  
+- Navigate to **Startup Tab > Network Boot**  
+- Ensure **LAN Boot** is enabled. 
 
 **3. PXE Boot Process**  
-- Select **Network Boot** in BIOS  
+- Select **Network Boot** in BIOS, or relevant selection to connect to the network.  
 - DHCP assigns IP address & provides PXE Boot Server details  
-- PXE Boot Server connects with **TFTP Server** to retrieve boot files  
+- PXE Boot Server connects with **TFTP Server** to retrieve boot files
+- The client should now display "Entering Network Boot..."   
 
 **4. Begin Imaging Process**  
 - Follow company-specific imaging steps  
-- Enter admin credentials to begin installation (**Prevents unauthorized imaging**)  
+- Enter admin credentials (**password**) to begin installation (this **Prevents unauthorized imaging**)  
 - Select appropriate image for the computer  
-- Assign **Hostname & Active Directory Description** (if required)  
+- Assign **Hostname & Active Directory Description** (potentially optional as it is for record-keeping and organization)  
 
 **5. Wait for Image Deployment to Complete**  
 
 ---
 
 ### **USB Drive Imaging Procedure**
-**1. Create a Bootable USB Drive**  
-- Use **company software library** to create bootable media  
-- Select **"Create Task Sequence Media"** → **Bootable Media**  
+**OVERVIEW: Create a Bootable USB Drive**  
+- Potentially use **company software library** to create bootable media  
+- Select **"Create Task Sequence Media"** . **Bootable Media**  
 - Secure USB with a **password**  
 
-**2. Booting into USB Imaging Mode**  
+**1. Booting into USB Imaging Mode**  
 - Insert **USB drive** into the computer  
 - Access **BIOS Boot Menu** → Set **USB as the first boot device**  
 
-**3. Begin Installation Process**  
+**2. Begin Installation Process**  
 - Follow installation steps for **system setup**  
 - Apply **company-specific settings**  
 
