@@ -1,14 +1,12 @@
 <p align="center">
-<img img width="260" alt="image" src="https://tse1.mm.bing.net/th/id/OIG3.ZsRTSLeL1.qmcEDs1Tb.?pid=ImgGn" alt="Enterprise Computer Imaging"/>
+<img width="260" alt="image" src="https://tse1.mm.bing.net/th/id/OIG3.ZsRTSLeL1.qmcEDs1Tb.?pid=ImgGn" alt="Enterprise Computer Imaging"/>
 </p>
 
 <h1><b>Enterprise Computer Imaging - PXE & USB Deployment</b></h1>
 
 <h2>Overview</h2>
 
-This repository provides a detailed guide on imaging computers using **PXE servers** and **USB drives**. It covers **enterprise provisioning techniques**, **network-based mass imaging**, and **manual deployment workflows**. Optional sections explore **DHCP configurations**, **PowerShell scripting**, and **Active Directory (AD) integration** for IT professionals.
-
-
+This repository provides a detailed guide on imaging computers using **PXE servers** and **USB drives**. It covers **enterprise provisioning techniques**, **network-based mass imaging**, and **manual deployment workflows**. 
 
 ---
 
@@ -18,7 +16,7 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 - **USB Bootable Media** – Manual deployment for specialized images or backup scenarios  
 - **Windows Deployment Services (WDS) (Optional)** – Streamlined imaging automation  
 - **DHCP & TFTP Servers** – PXE setup requirements for network provisioning  
-- **PowerShell Scripting (Optional)** – Automation for configuration tasks  
+- **PowerShell Scripting (Optional)** – Automation, configuration, and provisioning tasks
 - **Active Directory (AD) Integration (Optional)** – Enterprise provisioning  
 
 ---
@@ -35,20 +33,20 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 - **Network-connected PXE Server or Bootable USB Drive**  
 - **Windows ISO file** from [Microsoft](https://www.microsoft.com/en-us/software-download/windows10)  
 - **Imaging tools** (Macrium Reflect, Clonezilla, or WDS - optional)  
-- **PowerShell (Optional)** – For automation & provisioning tasks  
 - **Network Configuration** (DHCP, VLAN setup - optional for PXE)  
-
+- **PowerShell (Optional)**
+  
 ---
 
 <h2>Tutorial</h2>
 
 ### **PXE Server Imaging Procedure**
-**Overview:PXE Boot Workflow** 
-- Client machine boots from network
-- DHCP process (Broadcast, Offer, Request, Acknowledge) assigns an IP address and provides PXE boot server details
-- Client connects to TFTP server and requests the boot file
-- TFTP server sends the boot file, which the client loads into memory
-- Once loaded, imaging or OS installation process starts
+**OVERVIEW: PXE Boot Workflow** 
+- **Client machine boots from network**
+-**DHCP process (Discover, Offer, Request, Acknowledge) assigns an IP address and provides PXE boot server details**
+- **Client connects to TFTP server and requests the boot file**
+- **TFTP server sends the boot file, which the client loads into memory**
+- **Once loaded, the imaging or OS installation process starts**
 
 **1. Prepare the Target Computers**  
 - Connect computers to the network via Ethernet  
@@ -77,19 +75,19 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 
 ### **USB Drive Imaging Procedure**
 **OVERVIEW: USB Boot Workflow**
-- Insert USB drive into the computer
-- Access BIOS Boot Menu → Set USB as the first boot device
-- System loads installation media
-- Begin imaging or OS installation
+- **Insert USB drive into the computer**
+- **Access BIOS/UEFI Boot Menu → Set USB as the first boot device**
+- **System loads installation media**
+- **Begin imaging or OS installation**
 
 **1. Create a Bootable USB Drive**  
-- Potentially use **company software library** to create bootable media  
+- Use **company imaging software** or third-party tools to create bootable media  
 - Select **"Create Task Sequence Media" > Bootable Media > Next > Removable USB Drive**  
 - Secure USB with a **password**
 - If the company protocol is to have an expiration for the bootable media, select that now.
 
 **2. Booting into USB Imaging Mode**  
-- Insert **USB drive** into the computer  
+- Insert **bootable USB drive** into the target computer  
 - Access **BIOS Boot Menu** > Set **USB as the first boot device**
   - This can be done by using the appropriate function buttons (see #2 above) or manually by opening the **BIOS Settings > Boot Order Options > Change First Boot Order to USB > Save Changes and Exit BIOS.**
 -   The computer will reboot and load the image.
@@ -102,6 +100,5 @@ This repository provides a detailed guide on imaging computers using **PXE serve
 
 <h2>References & Inspiration</h2>
 
-- This repository was inspired by **best practices demonstrated** in the video  
+- This repository was inspired by **best practices demonstrated** in the video:  
   ["How to Image Computers | PXE | USB Drive"](https://www.youtube.com/watch?v=N9oohOcQI64) by East Charmer.  
-- This documentation was structured based on **industry-standard imaging workflows**.  
